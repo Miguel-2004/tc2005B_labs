@@ -2,6 +2,11 @@
     color: green;
 }
 
+.verde:hover{
+    color: pink;
+}
+
 #titulo{
     color: orange;
 }
+
