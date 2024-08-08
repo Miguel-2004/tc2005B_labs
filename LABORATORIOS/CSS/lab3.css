@@ -1,0 +1,58 @@
+/* Alineación del Texto (Centrado) */
+
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    /*Cambiar tipo de letra*/
+    font-family: "Helvetica", "Arial", sans-serif;
+    /* Espacio entre el Inicio y primer Título*/
+    line-height: 1.5;
+    padding: 4em 1em;
+    /*Cambio de color de Texto de body*/
+    color: rgb(84, 80, 80)
+  }
+
+h1 {
+    color: rgb(46, 102, 188)
+}
+
+h2{
+    color: rgb(12, 115, 143)
+}
+
+h3{
+    color: rgb(80, 88, 232)
+}
+
+.Imagen-presentacion{
+    width: 180px;
+    height: 300px;
+}
+.imagen-cen{
+    text-align: center;
+}
+
+.Imagen-viajes{
+    width: 205px;
+    height: 300px;
+}
+
+.Imagen-IASP{
+    width: 200px;
+    height: 130px;
+}
+
+
+/*  --------------------------  PREGUNTAS --------------------------  */
+
+/* 1. Recomendación sobre el uso de !important en CSS*/
+/* El uso de !important debe de ser con moderación, es recomendable utilizarlo para sobrescribir estilos específicos, ya que puede complicar el mantenimiento y causar conflictos al hacer difícil el ajuste de otros estilos en la hoja de estilos*/
+
+/* 2. Imagen de Fondo*/
+/* El elegir una imagen de fondo debe de ser escogida de manera óptima para reducir los tiempos de carga, nos debemos de segurar que el texto sea legible y mejorar la experiencia visual de los usuarios, manteniendo el equilibrio entre calidad y rendimiento.*/
+
+/* 3.Unidades de estilo entre %, px y pt */
+/* % para diseños responsivos y proporcionales, px para la precisión en elementos fijos, pt evitarlo en pantalla, ya que es para impresión. Debes adaptar de acuerdo al contexto y dispositivo. */
+
+/* 4. Uso de CSS minimizado*/
+/* Una versión minimizada de CSS ayuda a la mejora del rendimiento reduciendo el tamaño del archivo y el tiempo de carga, eliminando espacios y comentarios acelerando el procesamiento. */
