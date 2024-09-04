@@ -10,7 +10,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/miguelangelbecerraayala/Desktop/TC2005B/tc2005B_labs/LABORATORIOS/lab4.html"
+            "file": "/Users/miguelangelbecerraayala/Desktop/TC2005B/tc2005B_labs/LABORATORIOS/lab6.html"
         }
     ]
 }
