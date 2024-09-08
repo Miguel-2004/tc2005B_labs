@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <link rel="stylesheet" href=CSS/lab6.css>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Validator</h2>
+        <input type="password" id="password" placeholder="Enter your password" oninput="checkStrength()">
+        <div id="password-strength"></div>
+        <input type="password" id="confirm-password" placeholder="Confirm your password" oninput="checkMatch()">
+        <div id="error-message" class="error">Passwords do not match</div>
+        <div id="success-message" class="success">Passwords match!</div>
+        <button id="submit-btn" disabled>Submit</button>
+    </div>
+    <script src="js/lab6.js"></script>
+</body>
+</html>
+
+<!  --------------------- PREGUNTAS ----------------------------- -->
+<! 1. JavaScript ayuda a mejorar la experiencia del usuario validando los inputs en tiempo real, ayuda a reducir la carga del servidor y ayuda ahorrando ancho de banda al evitar solicitudes innecesarias con datos incorrectos. -->
+<! 2. El saltarse las validaciones o también conocido como la descaticación de JavaScript, es el modificar el código en el navegador o enviar solicitudes directamente al servidor mediante herramientas como Postman.-->
+<! 3. Es una buena práctica porque mejora la usabilidad y eficiencia, pero siempre debe de complementarse con validaciones en el servidor para garantizar la seguridad. -->

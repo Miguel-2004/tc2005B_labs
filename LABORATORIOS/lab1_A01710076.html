@@ -1,115 +1,200 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Mi Blog Personal
-        </title>
-        <link type="text/css" rel="stylesheet" href="css/lab3.min.css">
-    </head>
-    <body>
-        <h1> MI BLOG PERSONAL </h1>
-        <strong>
-             Holaaaaaa soy Migue
-        </strong>
-        <p> Mi nombre es Miguel Angel Becerra Ayala y estoy entre el 4° y 5° semestre de Ingeniría en Tecnologías Computacionales.</p>
-        <p> Soy originario de San Juan del Río Querétaro y actualmente vivo en Juriquilla con mi hermana.</p>
-            <div class="imagen-cen">
-            <img src="Images/rde.jpeg" class="Imagen-presentacion">
-            </div>  
-        <h3> Contacto </h3>
-        <p> Correo: <em>A01710076@tec.mx</em></p>
-        <p>  Número de Teléfono: <em> 4271075928 </em></p>
-        <h2>Mis Gustos y Hoobies</h2>
-        <p> Me encanta nadar, y fui competidor por más de 8 años, pero una lesión en la columna me detuvo. Ahora me gusta ir al gym. </p>
-        <p>También me gusta leer, especialmente ciencia ficción, y viajar es otra de mis pasiones. He tenido la suerte de conocer 14 
-            países, como Alemania, Italia, República Dominicana, Inglaterra, EE.UU., Francia, Turquía, Emiratos Árabes, Suiza, Austria, 
-            Guatemala, Panamá, España y Canadá. Además, he estado en 30 de los 32 estados de México. En cada viaje, me gusta sumergirme 
-            en la cultura local.
-            <div class="imagen-cen">
-            <img src="Images/disney.jpeg" class="Imagen-viajes">
-            <img src="Images/paris.jpeg" class="Imagen-viajes">
-            <img src="Images/rdc.jpeg" class="Imagen-viajes">
-            </div>
-        </p>
-        <p>La programación me fascina, aunque últimamente me cuesta un poco aprender, así que he estado probando diferentes métodos de 
-           estudio. Desde la preparatoria supe que quería dedicarme a esto porque me apasiona y tiene mucho futuro.
-        </p>
-        <p>
-            Finalmente, pasar tiempo con mis amigos y mi familia es super importante para mí.
-        </p>
-        <h2> Mi Experiencia</h2>
-        <p>
-            Desde el bachillerato, cuando tomé mi primera clase de Programación, comenzó mi pasión por este mundo. No me considero el 
-            mejor programador, pero creo que poco a poco estoy adquiriendo las herramientas para ser realmente bueno. Tengo experiencia
-            en varios lenguajes, y me encanta HTML y la programación web. También he trabajado con C++, Python, Racket, MATLAB y R. 
-            Espero que en este curso pueda obtener más experiencia con los nuevos lenguajes que aprenderemos.
-            <div class="imagen-cen">
-                <img src="Images/redes.jpg" class="Imagen-viajes">
-            </div>
-        </p>
-        <h2>Objetivos y Aspiraciones</h2>
-        <p>
-            Tengo muchas expectativas para mi vida y me gustaría ser una persona exitosa. He elaborado algunos planes para mi futuro, 
-            y uno de ellos es comenzar a trabajar en una empresa este o el próximo semestre. Una vez que termine mi carrera académica, 
-            me gustaría trabajar durante algunos años en una empresa antes de fundar mi propia compañía. También me interesa hacer una 
-            maestría en negocios.
-        </p>
-        <p>
-            En cuanto a mis metas a corto plazo, uno de mis objetivos es participar en el IASP 2024 organizado por AEXA y visitar la 
-            NASA durante una semana. Desde el año pasado, esto se ha convertido en una meta importante para mí.
-        </p>
-        <div class="imagen-cen">
-            <img src="Images/iasp.jpg" class="Imagen-IASP">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Blog Personal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1506748686214e9df14f1f2d6d740aebc1b7e8d2f067f?fit=crop&w=1600&h=900');
+            background-size: cover;
+            color: white;
+            padding: 5rem 1.5rem;
+        }
+        .hero-body {
+            text-align: center;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .card-image img {
+            transition: transform 0.3s;
+        }
+        .card-image img:hover {
+            transform: scale(1.05);
+        }
+        .section {
+            margin-top: 2rem;
+        }
+        .columns img {
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .columns img:hover {
+            transform: scale(1.05);
+        }
+        .navbar {
+            margin-bottom: 2rem;
+        }
+        .navbar-item img {
+            max-height: 2.5rem;
+        }
+        .hero-container {
+            background-image: url('Images/rdp.jpeg'); 
+            background-size: cover; 
+            background-position: center; /* Centra la imagen en el contenedor */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            color: white; /* Cambia el color del texto si es necesario para que contraste con la imagen */
+            padding: 20px; /* Ajusta el padding si es necesario */
+            height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+            display: flex; /* Utiliza flexbox para centrar el contenido */
+            align-items: center; /* Centra el contenido verticalmente */
+            justify-content: center; /* Centra el contenido horizontalmente */
+            text-align: center; /* Centra el texto dentro del contenedor */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/9154/9154891.png" alt="Logo">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-    </body>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    MÁS SOBRE MÍ
+                </a>
+                <a class="navbar-item">
+                    CONTACTO
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        EXPERIENCIA
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            DEPORTIVA
+                        </a>
+                        <a class="navbar-item is-active">
+                            ESCOLAR
+                        </a>
+                        <a class="navbar-item">
+                            MIS VIAJES
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-large">
+        <div class="hero-body">
+            <div class="container hero-container">
+                <h1 class="title is-2">MI BLOG PERSONAL</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="section">
+            <div class="content">
+                <h3 class="title is-3">¡Hola, soy Miguel!</h3>
+                <p>Mi nombre es Miguel Angel Becerra Ayala y estoy entre el 4° y 5° semestre de Ingeniería en Tecnologías Computacionales.</p>
+                <p>Soy originario de San Juan del Río Querétaro y actualmente vivo en Juriquilla con mi hermana.</p>
+                <p>Me encantan las cosas nuevas y siempre estoy buscando aprender más. Me considero una persona curiosa y aventurera.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <h3 class="title is-3">Contacto</h3>
+            <p><strong>Correo:</strong> <em>A01710076@tec.mx</em></p>
+            <p><strong>Número de Teléfono:</strong> <em>4271075928</em></p>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section class="section">
+            <h2 class="title is-3">Mis Gustos y Hobbies</h2>
+            <p>Me encanta nadar, y fui competidor por más de 8 años, pero una lesión en la columna me detuvo. Ahora me gusta ir al gym.
+            También me gusta leer, especialmente ciencia ficción, y viajar es otra de mis pasiones. He tenido la suerte de conocer 14 países...</p>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <figure class="image">
+                        <img src="Images/disney.jpeg" alt="Disney">
+                    </figure>
+                </div>
+                <div class="column is-one-third">
+                    <figure class="image">
+                        <img src="Images/paris.jpeg" alt="Paris">
+                    </figure>
+                </div>
+                <div class="column is-one-third">
+                    <figure class="image">
+                        <img src="Images/rdc.jpeg" alt="República Dominicana">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="title is-3">Mi Experiencia</h2>
+            <p>Desde el bachillerato, cuando tomé mi primera clase de Programación, comenzó mi pasión por este mundo. Me fascinó cómo con solo unas líneas de código podía crear algo funcional y útil.
+                He trabajado en diversos proyectos que han ampliado mis conocimientos en programación y desarrollo de software. Cada experiencia ha sido una oportunidad para aprender y mejorar.</p>
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <figure class="image">
+                        <img src="Images/redes.jpg" alt="Redes">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objectives Section -->
+        <section class="section">
+            <h2 class="title is-3">Objetivos y Aspiraciones</h2>
+            <p>Tengo muchas expectativas para mi vida y me gustaría ser una persona exitosa. He elaborado algunos planes para mi futuro, incluyendo obtener un título avanzado en mi campo de estudio y contribuir a proyectos significativos.
+            Mi objetivo principal es combinar mi pasión por la tecnología con mi deseo de hacer una diferencia en el mundo, creando soluciones innovadoras y eficientes.</p>
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <figure class="image">
+                        <img src="Images/iasp.jpg" alt="Templo">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>&copy; 2024 Miguel Angel Becerra Ayala. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bulma@1.0.2/js/bulma.min.js"></script>
+</body>
 </html>
-
-<! -- --------------------- PREGUNTAS ----------------------------- -->
-
-<! 1. Diferencia entre Internet Y la World Wide Web -->
-<! Internet es la estructura global de la red, mientras que la WWW es un servicio que utiliza el internet para acceder a las páginas mediante HTTP. -->
-
-<! 2. Partes de una URL -->
-<! El URL se constituye de 6 partes las cuales son: Esquema (Protocolo), nombre del dominio, puerto (Llega a ser opcional), ruta, consulta (opcional) y fragmento (opcional). -->
-
-<! 3. Própositos de los métodos HTTP -->
-<!    - GET: Recuperar datos. -->
-<!    - HEAD: Similar a GET, sin el cuerpo.-->
-<!    - POST: Envía datos.-->
-<!    - PUT: Reemplaza recursos.-->
-<!    - PATCH: Modifica parcialmente.-->
-<!    - DELETE: Elimina recursos. -->
-
-<! 4. Método HTTP para enviar formularios HTML -->
-<! El método POST para el envio de formularios en HTML, como usuario y constraseña, debido a que transmite datos al servidor de manera seguda.-->
-
-<! 5. Método HTTP para acceder a una página -->
-<! GET es el método HTTP utilizado para acceder a una página web por medio de una URL desde un navegador. -->
-
-<! 6. Significado del código 200 en HTTP -->
-<! El código 200 significa éxito; la solicitud fue procesada de manera correcta sin errores. -->
-
-<! 7. Error 404 -->
-<! El error 404 puede ser una página bloqueada por el desarrollador y el error indica que la página solicitada no existe o no se encuentra bien vinculada. -->
-
-<! 8. Error 500 -->
-<! En cuanto al error 500 se refiere a que el desarrollador es el encargado del error, ya que indica un problema interno del servidor y debe de ser corregido -->
-
-<! 9. Significado de un atributo HTML5 depreciado -->
-<! Un atributo depreciado ya no es recomendado para usar y podría ser eliminaado en futuras versiones tales como <font>, <center> -->
-
-<! 10. Diferencias entre HTML4 y HTML5 -->
-<! HTML5 introdujo nuevas etiquetas semánticas, audio y API; elimina elementos obsoletos y mejora la estructura y funcionalidad -->
-
-<! 11. Componentes de estructura y estilo de una tabla -->
-<! Una tabla tiene atributos: table, tr, th, td y los estilos pueden ser aplicados mediante CSS para un diseño visual -->
-
-<! 12. Principales controles de una forma HTML5 -->
-<! Controles HTML5 incluyen: input, textarea, button, select, datalist, output, progress y meter -->
-
-<! 13. Soporte HTML5 en navegadores -->
-<! En mi caso utilizo Google Chrome para la navegación Web y el soporte que tiene este mismo es: 525 de 555 puntos lo cual indica un número alto -->
-
-<! 14. Ciclos de vida de los sistemas de informacion y ciclo de desarrollo de sistemas de información -->
-<! Los ciclos de vida de los sistemas de informacion incluyen la planificación, análisis, diseño, implementación, mantenimiento y evaluación para gestionar eficazmente el desarrollo de sistemas. -->
-<! Los cilos de desarrollo de los sistemas de informacion consisten en el análisis, diseño, desarrollo, pruebas, implementación y mantenimiento de software para el cumplimiento de requerimientos y objetivos -->
