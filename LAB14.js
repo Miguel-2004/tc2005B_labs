@@ -5,8 +5,6 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-
-// Importar rutas
 const taskRoutes = require('./routes/taskRoutes');
 
 // Configurar el motor de plantillas EJS
@@ -25,8 +23,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60, // 1 hora
-        httpOnly: true,         // La cookie solo es accesible desde el servidor
-        secure: false           // Configurar como 'false' si no estás usando HTTPS
+        httpOnly: true,
+        secure: false
     }
 }));
 

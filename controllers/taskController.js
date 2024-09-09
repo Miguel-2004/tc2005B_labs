@@ -1,38 +1,45 @@
 const Task = require('../models/task');
 
-// Establecer una cookie
-exports.setCookie = (req, res, next) => {
-    res.setHeader('Set-Cookie', 'usuario=Juan; HttpOnly');
-    res.redirect('/tasks');
-};
-
-// Leer una cookie
-exports.getCookie = (req, res, next) => {
-    const cookies = req.get('Cookie').split(';').find(cookie => cookie.trim().startsWith('usuario'));
-    console.log('Cookie:', cookies);
-    res.redirect('/tasks');
-};
-
-// Establecer una variable de sesión
-exports.setSession = (req, res, next) => {
-    req.session.usuario = 'Juan';
-    res.redirect('/tasks');
-};
-
-// Mostrar las tareas con la sesión
+// Mostrar todas las tareas
 exports.getTasks = (req, res, next) => {
-    const tasks = Task.fetchAll();
-    res.render('task-list', { pageTitle: 'Lista de Tareas', tasks: tasks, usuario: req.session.usuario });
+    Task.fetchAll()
+        .then(([rows]) => {
+            res.render('task-list', { pageTitle: 'Lista de Tareas', tasks: rows });
+        })
+        .catch(err => console.log(err));
 };
 
-// Cerrar sesión
-exports.logout = (req, res, next) => {
-    req.session.destroy((err) => {
-        if (err) {
-            console.log('Error al destruir la sesión:', err);
-            return next(err);
-        }
-        res.clearCookie('connect.sid', { path: '/' }); // Elimina la cookie de sesión
-        res.redirect('/');
-    });
+// Guardar una nueva tarea
+exports.postAddTask = (req, res, next) => {
+    const newTask = new Task(req.body.description);
+    newTask.save()
+        .then(() => {
+            res.redirect('/tasks');
+        })
+        .catch(err => console.log(err));
+};
+
+// Obtener una tarea por ID
+exports.getTaskById = (req, res, next) => {
+    const taskId = req.params.taskId;
+    Task.findById(taskId)
+        .then(([rows]) => {
+            if (rows.length > 0) {
+                res.render('task-detail', { task: rows[0] });
+            } else {
+                res.redirect('/tasks');
+            }
+        })
+        .catch(err => console.log(err));
+};
+
+// Actualizar una tarea (marcar como completada)
+exports.postUpdateTask = (req, res, next) => {
+    const taskId = req.body.taskId;
+    const completado = req.body.completado === 'true';
+    Task.update(taskId, completado)
+        .then(() => {
+            res.redirect('/tasks');
+        })
+        .catch(err => console.log(err));
 };

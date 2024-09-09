@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= pageTitle %></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">Lista de Tareas</h1>
-            <p>Bienvenido, <%= usuario %>!</p>
-            <ul class="list">
-                <% tasks.forEach(task => { %>
-                    <li class="box">
-                        <%= task.description %>
-                        <% if (!task.completed) { %>
-                            <span class="tag is-warning">Pendiente</span>
-                        <% } else { %>
-                            <span class="tag is-success">Completada</span>
-                        <% } %>
-                    </li>
-                <% }); %>
-            </ul>
-            <a class="button is-link is-light" href="/add-task">Agregar nueva tarea</a>
-            <a class="button is-danger" href="/logout">Cerrar Sesión</a>
-        </div>
-    </section>
+    <h1>Lista de Tareas</h1>
+    
+    <!-- Formulario para agregar nueva tarea -->
+    <form action="/add-task" method="POST">
+        <label for="description">Nueva tarea:</label>
+        <input type="text" name="description" id="description" required>
+        <button type="submit">Agregar Tarea</button>
+    </form>
+    
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <%= task.descripcion %> 
+                <% if (task.completado) { %>
+                    <span>Completada</span>
+                <% } else { %>
+                    <form action="/update-task" method="POST">
+                        <input type="hidden" name="taskId" value="<%= task.id %>">
+                        <button type="submit" name="completado" value="true">Marcar como completada</button>
+                    </form>
+                <% } %>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>
