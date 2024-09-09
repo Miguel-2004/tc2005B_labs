@@ -1,22 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const taskController = require('../controllers/taskController');
+const authController = require('../controllers/authController');
 
-// Redirigir al listado de tareas cuando accede a la raíz
+// Middleware para proteger rutas
+const isAuth = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect('/login');
+    }
+    next();
+};
+
+// Rutas para tareas
+router.get('/tasks', isAuth, taskController.getTasks);
+router.post('/add-task', isAuth, taskController.postAddTask);
+
+// Rutas de autenticación
+router.get('/signup', authController.getSignup);
+router.post('/signup', authController.postSignup);
+router.get('/login', authController.getLogin);
+router.post('/login', authController.postLogin);
+router.post('/logout', isAuth, authController.postLogout);
+
+// Redirigir la raíz a /tasks
 router.get('/', (req, res) => {
     res.redirect('/tasks');
 });
-
-// Mostrar la lista de tareas
-router.get('/tasks', taskController.getTasks);
-
-// Agregar una nueva tarea
-router.post('/add-task', taskController.postAddTask);
-
-// Obtener una tarea por ID
-router.get('/tasks/:taskId', taskController.getTaskById);
-
-// Actualizar una tarea
-router.post('/update-task', taskController.postUpdateTask);
 
 module.exports = router;

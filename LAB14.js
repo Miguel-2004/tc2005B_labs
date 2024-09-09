@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
+const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 
+const csrfProtection = csrf();
 const app = express();
 const taskRoutes = require('./routes/taskRoutes');
 
@@ -23,11 +25,21 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60, // 1 hora
-        httpOnly: true,
-        secure: false
+        httpOnly: true,         // Solo accesible desde el servidor
+        secure: false           // En 'false' si no usas HTTPS
     }
 }));
 
+// Protección CSRF
+app.use(csrfProtection);
+
+// Pasar el token CSRF a todas las vistas
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
+
+// Importar rutas
 app.use(taskRoutes);
 
 // Arrancar el servidor
