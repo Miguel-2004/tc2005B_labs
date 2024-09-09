@@ -14,18 +14,4 @@ module.exports = class Task {
     static fetchAll() {
         return tasks;
     }
-
-    static markComplete(taskId) {
-        const task = tasks.find(t => t.id === taskId);
-        if (task) {
-            task.completed = true;
-        }
-    }
-
-    static delete(taskId) {
-        const index = tasks.findIndex(t => t.id === taskId);
-        if (index > -1) {
-            tasks.splice(index, 1);
-        }
-    }
 };

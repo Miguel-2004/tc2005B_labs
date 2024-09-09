@@ -10,35 +10,21 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Lista de Tareas</h1>
+            <p>Bienvenido, <%= usuario %>!</p>
             <ul class="list">
                 <% tasks.forEach(task => { %>
                     <li class="box">
-                        <div class="columns">
-                            <div class="column">
-                                <%= task.description %> 
-                                <% if (task.completed) { %>
-                                    <span class="tag is-success">Completada</span>
-                                <% } else { %>
-                                    <span class="tag is-warning">Pendiente</span>
-                                <% } %>
-                            </div>
-                            <div class="column is-narrow">
-                                <% if (!task.completed) { %>
-                                    <form action="/mark-complete" method="POST" style="display:inline;">
-                                        <input type="hidden" name="taskId" value="<%= task.id %>">
-                                        <button class="button is-small is-success">Marcar como completada</button>
-                                    </form>
-                                <% } %>
-                                <form action="/delete-task" method="POST" style="display:inline;">
-                                    <input type="hidden" name="taskId" value="<%= task.id %>">
-                                    <button class="button is-small is-danger">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>
+                        <%= task.description %>
+                        <% if (!task.completed) { %>
+                            <span class="tag is-warning">Pendiente</span>
+                        <% } else { %>
+                            <span class="tag is-success">Completada</span>
+                        <% } %>
                     </li>
                 <% }); %>
             </ul>
-            <a class="button is-link is-light" href="/add-task" style="margin-top: 20px;">Agregar nueva tarea</a>
+            <a class="button is-link is-light" href="/add-task">Agregar nueva tarea</a>
+            <a class="button is-danger" href="/logout">Cerrar Sesión</a>
         </div>
     </section>
 </body>
